@@ -2,7 +2,7 @@
  * Project: To Do List Application
  * Author: Ryan Brinkman
  * Date: 11/07/2024
- * Repository: https://github.com/RyanBrin/java/tree/main/intellij/to-do-list-app
+ * Repository: https://github.com/RyanBrin/java/tree/main/intellij/to-do-list-app/
  */
 
 import javafx.application.Application;

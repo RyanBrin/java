@@ -33,5 +33,10 @@ public class TestRectangle {
         System.out.println("Rectangle 2: " + spookly.getPerimeter());
         System.out.println("Rectangle 3: " + bert.getPerimeter());
         System.out.println("Rectangle 4: " + hiddenRoom.getPerimeter());
+
+        System.out.println();
+
+        System.out.println("Area Formula");
+        Rectangle.areaFormula();
     }
 }

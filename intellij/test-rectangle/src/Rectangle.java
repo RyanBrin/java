@@ -64,4 +64,13 @@ public class Rectangle {
     public double getArea() {
         return length * width;
     }
+
+    /**
+     * Getter method
+     * @pre None
+     * @post Returns the formula for area
+     */
+    public static void areaFormula() {
+        System.out.println("area = length * width");
+    }
 }
