@@ -1,7 +1,7 @@
 /*
  * Project: To Do List Application
  * Author: Ryan Brinkman
- * Date: 11/07/2024
+ * Date: 11/09/2024
  * Repository: https://github.com/RyanBrin/java/tree/main/intellij/to-do-list-app/
  */
 
@@ -15,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class App extends Application {
@@ -82,20 +83,20 @@ public class App extends Application {
         });
 
         clearTasksButton.setOnAction(_ -> {
-           if (!numTasks.get() > 0) {
-               while (numTasks.get() > 0) {
-                   numTasks.getAndDecrement();
-                   tasksVBox.getChildren().remove(tasksVBox.getChildren().size() - 1);
-                   numErrors.getAndDecrement();
-                   if (numTasks.get() == 0) {
-                       break;
-                   }
-               }
-           } else {
-               Label errorLabel = new Label("Error: No tasks to clear.");
-               errorsVBox.getChildren().add(errorLabel);
-               numErrors.getAndIncrement();
-           }
+            if (numTasks.get() > 0) {
+                while (numTasks.get() > 0) {
+                    numTasks.getAndDecrement();
+                    tasksVBox.getChildren().remove(tasksVBox.getChildren().size() - 1);
+                    numErrors.getAndDecrement();
+                    if (numTasks.get() == 0) {
+                        break;
+                    }
+                }
+            } else {
+                Label errorLabel = new Label("Error: No tasks to clear.");
+                errorsVBox.getChildren().add(errorLabel);
+                numErrors.getAndIncrement();
+            }
         });
 
         HBox buttonsHBox = new HBox(10, addTaskButton, deleteTaskButton, clearTasksButton);
