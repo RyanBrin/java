@@ -150,10 +150,9 @@ public class Customer {
 
     /**
      * Getter method
-     *
      * @return Customer's information as a String
      */
     public String toString() {
-        return firstName + " " + lastName + "\n" + street + "\n" + city + ", " + state + " " + zip;
+        return firstName + " " + lastName + "\n" + street + "\n" + city + ", " + state + " " + zip + "\n";
     }
 }

@@ -13,21 +13,21 @@ public class Account {
      */
     public Account() {
         balance = 0.0;
-        Customer customer = new Customer();
+        customer = new Customer();
         customer.setFirstName("John");
         customer.setLastName("Doe");
         customer.setStreet("123 Main St");
         customer.setCity("Anytown");
         customer.setState("CA");
         customer.setZip("12345");
-
     }
 
     /**
      * Constructor method
      */
     public Account(double balance, String firstName, String lastName, String street, String city, String state, String zip) {
-        Customer temp = new Customer(firstName, lastName, street, city, state, zip);
+        this.balance = balance;
+        this.customer = new Customer(firstName, lastName, street, city, state, zip);
     }
 
     /**
@@ -48,8 +48,8 @@ public class Account {
     /**
      * Setter method
      */
-    public void withdrawl(double ammount) {
-        balance -= ammount;
+    public void withdrawal(double amount) {
+        balance -= amount;
     }
 
     /**
@@ -71,8 +71,12 @@ public class Account {
         return currencyFormatter.format(balance);
     }
 
+    /**
+     * Getter Method
+     * @return Customer's information and balance as a string
+     */
     @Override
     public String toString() {
-        return "Account [balance=" + getFormattedBalance() + ", customer=" + customer + "]";
+        return customer.toString() + "Current balance: " + getFormattedBalance();
     }
 }
