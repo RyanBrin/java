@@ -27,7 +27,13 @@ public class Account {
      */
     public Account(double balance, String firstName, String lastName, String street, String city, String state, String zip) {
         this.balance = balance;
-        this.customer = new Customer(firstName, lastName, street, city, state, zip);
+        this.customer = new Customer();
+        this.customer.setFirstName(firstName);
+        this.customer.setLastName(lastName);
+        this.customer.setStreet(street);
+        this.customer.setCity(city);
+        this.customer.setState(state);
+        this.customer.setZip(zip);
     }
 
     /**
@@ -49,7 +55,11 @@ public class Account {
      * Setter method
      */
     public void withdrawal(double amount) {
-        balance -= amount;
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Error: Insufficient funds for withdrawal.");
+        }
     }
 
     /**
