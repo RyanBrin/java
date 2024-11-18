@@ -89,4 +89,21 @@ public class Account {
     public String toString() {
         return customer.toString() + "Current balance: " + getFormattedBalance();
     }
+
+    public void changeAddress(String newStreet, String newCity, String newState, String newZip) {
+        customer.setStreet(newStreet);
+        customer.setCity(newCity);
+        customer.setState(newState);
+        customer.setZip(newZip);
+        System.out.println("Address changed successfully.");
+    }
+
+    public void changePhone(String newPhone) {
+        customer.setPhoneNum(newPhone);
+        System.out.println("Phone number changed successfully.");
+    }
+
+    public String getName() {
+        return customer.getFirstName() + " " + customer.getLastName();
+    }
 }
