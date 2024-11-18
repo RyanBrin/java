@@ -38,6 +38,7 @@ public class Account {
 
     /**
      * Getter method
+     *
      * @return Customer's balance
      */
     public double getBalance() {
@@ -74,6 +75,7 @@ public class Account {
 
     /**
      * Getter method
+     *
      * @return formatted balance
      */
     public String getFormattedBalance() {
@@ -82,7 +84,8 @@ public class Account {
     }
 
     /**
-     * Getter Method
+     * Getter method
+     *
      * @return Customer's information and balance as a string
      */
     @Override
@@ -90,6 +93,14 @@ public class Account {
         return customer.toString() + "Current balance: " + getFormattedBalance();
     }
 
+    /**
+     * Setter method
+     *
+     * @param newStreet The new street
+     * @param newCity   The new city
+     * @param newState  The new state
+     * @param newZip    The new zip
+     */
     public void changeAddress(String newStreet, String newCity, String newState, String newZip) {
         customer.setStreet(newStreet);
         customer.setCity(newCity);
@@ -98,11 +109,21 @@ public class Account {
         System.out.println("Address changed successfully.");
     }
 
+    /**
+     * Setter method
+     *
+     * @param newPhone The new phone
+     */
     public void changePhone(String newPhone) {
         customer.setPhoneNum(newPhone);
         System.out.println("Phone number changed successfully.");
     }
 
+    /**
+     * Getter method
+     *
+     * @return Customer's first name and last name
+     */
     public String getName() {
         return customer.getFirstName() + " " + customer.getLastName();
     }

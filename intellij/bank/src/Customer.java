@@ -26,6 +26,7 @@ public class Customer {
 
     /**
      * Constructor method
+     *
      * @param firstName Customer's first name
      * @param lastName  Customer's last name
      * @param street    Customer's street address
@@ -46,6 +47,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param firstName Set customer's first name
      */
     public void setFirstName(String firstName) {
@@ -54,6 +56,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param lastName Set customer's last name
      */
     public void setLastName(String lastName) {
@@ -62,6 +65,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param street Set customer's street
      */
     public void setStreet(String street) {
@@ -70,6 +74,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param city Set customer's city
      */
     public void setCity(String city) {
@@ -78,6 +83,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param state Set customer's state
      */
     public void setState(String state) {
@@ -86,6 +92,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param zip Set customer's ZIP code
      */
     public void setZip(String zip) {
@@ -94,6 +101,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param phoneNum Set customer's phone number
      */
     public void setPhoneNum(String phoneNum) {
@@ -102,6 +110,7 @@ public class Customer {
 
     /**
      * Getter method
+     *
      * @return Customer's first name
      */
     public String getFirstName() {
@@ -110,6 +119,7 @@ public class Customer {
 
     /**
      * Getter method
+     *
      * @return Customer's last name
      */
     public String getLastName() {
@@ -118,6 +128,7 @@ public class Customer {
 
     /**
      * Getter method
+     *
      * @return Customer's street
      */
     public String getStreet() {
@@ -126,6 +137,7 @@ public class Customer {
 
     /**
      * Getter method
+     *
      * @return Customer's city
      */
     public String getCity() {
@@ -134,6 +146,7 @@ public class Customer {
 
     /**
      * Getter method
+     *
      * @return Customer's state
      */
     public String getState() {
@@ -142,6 +155,7 @@ public class Customer {
 
     /**
      * Getter method
+     *
      * @return Customer's ZIP code
      */
     public String getZip() {
@@ -150,6 +164,7 @@ public class Customer {
 
     /**
      * Getter method
+     *
      * @return Customer's phone number
      */
     public String getPhone() {
@@ -158,6 +173,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param newPhoneNum New phone number to set
      */
     public void changePhone(String newPhoneNum) {
@@ -166,6 +182,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param newFirstName New first name to set
      */
     public void changeFirstName(String newFirstName) {
@@ -174,6 +191,7 @@ public class Customer {
 
     /**
      * Setter method
+     *
      * @param newLastName New last name to set
      */
     public void changeLastName(String newLastName) {
@@ -182,6 +200,7 @@ public class Customer {
 
     /**
      * Getter method
+     *
      * @return Customer's information as a String
      */
     public String toString() {

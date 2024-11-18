@@ -6,6 +6,7 @@
  */
 
 // Import necessary packages
+
 import java.text.NumberFormat;
 import java.util.Scanner;
 
@@ -48,10 +49,11 @@ public class Bank {
 
         // Main transaction loop
         while (true) {
+            // Get account number from user
             System.out.println("\nSelect an account (1-20) or 0 to exit:");
             int accountIndex = scanner.nextInt() - 1;
 
-            // Exception handler
+            // Exception handler for when user enters '0' (0-1=-1)
             if (accountIndex == -1)
                 break;
 
@@ -61,10 +63,12 @@ public class Bank {
                 continue;
             }
 
+            // Get selected account information
             Account selectedAccount = accounts[accountIndex];
 
+            // Transaction loop
             while (true) {
-                System.out.println("\nAccount Information: " + "\nID: " + (accountIndex + 1)  + " \n" + selectedAccount.getName());
+                System.out.println("\nAccount Information: " + "\nID: " + (accountIndex + 1) + " \n" + selectedAccount.getName());
                 System.out.println("\nAccount Menu:");
                 System.out.println("1. Print balance");
                 System.out.println("2. Deposit");
@@ -74,6 +78,7 @@ public class Bank {
                 System.out.println("6. Back to account selection");
                 int choice = scanner.nextInt();
 
+                // Switch state to handle user choice for account menu options
                 switch (choice) {
                     case 1:
                         System.out.println("Current balance: " + selectedAccount.getFormattedBalance());
@@ -121,6 +126,7 @@ public class Bank {
                         continue;
                 }
 
+                // Exit transaction loop if user chooses to go back to account selection
                 if (choice == 6) break;
             }
         }
