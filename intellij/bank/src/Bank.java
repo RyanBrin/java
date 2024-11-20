@@ -9,6 +9,7 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Bank {
+
     public static void main(String[] args) {
         Account[] accounts = {
                 new Account(25000, "Mario", "Munoz", "110 Glades Rd", "Myron", "FL", "33450"),
@@ -90,115 +91,135 @@ public class Bank {
 
         Scanner scanner = new Scanner(System.in);
         int totalTransactions = 0;
+        int totalDepositCount = 0;
+        int totalWithdrawalCount = 0;
         double totalDeposits = 0;
         double totalWithdrawals = 0;
 
         double totalBankMoneyStart = calculateTotalBankMoney(accounts);
-        System.out.println("---------------------------------------------------");
-        System.out.println("Total money in the bank at start: " + formatCurrency(totalBankMoneyStart));
-        System.out.println("---------------------------------------------------");
+        System.out.println("===========================================================");
+        System.out.println("                Welcome to Bank Management                 ");
+        System.out.println("===========================================================");
+        System.out.println("💰 Total money in the bank at start: " + formatCurrency(totalBankMoneyStart));
+        System.out.println("===========================================================");
 
         while (true) {
             try {
-                // Account Selection
+                // Display the account selection menu
                 System.out.println("\n=================== Account Selection ===================");
-                System.out.println("ID\tAccount Holder");
+                System.out.printf("%-5s %-20s\n", "ID", "Account Holder");
+                System.out.println("---------------------------------------------------------");
                 for (int i = 0; i < accounts.length; i++) {
-                    System.out.printf("%03d\t%s\n", (i + 1), accounts[i].getName());
+                    System.out.printf("%03d   %-20s\n", (i + 1), accounts[i].getName());
                 }
                 System.out.println("=========================================================");
-                System.out.print("Select an account (001-" + String.format("%03d", accounts.length) + ") or 0 to exit: ");
+                System.out.print("👉 Select an account (001-" + String.format("%03d", accounts.length) + ") or 0 to exit: ");
                 int accountIndex = Integer.parseInt(scanner.nextLine()) - 1;
 
                 // Exit if user selects 0
-                if (accountIndex == -1) break;
+                if (accountIndex == -1) {
+                    System.out.println("\n🏦 Thank you for using Bank Management. Goodbye!");
+                    break;
+                }
 
                 // Validate account selection
                 if (accountIndex < 0 || accountIndex >= accounts.length) {
-                    System.out.println("Invalid account number. Please try again.");
+                    System.out.println("\n❌ Invalid account number. Please try again.");
                     continue;
                 }
 
                 Account selectedAccount = accounts[accountIndex];
 
                 while (true) {
+                    // Display account menu
                     System.out.println("\n================= Account Information ==================");
-                    System.out.println("ID: " + (accountIndex + 1) + " \n" + selectedAccount.getName());
+                    System.out.println("👤 Account ID: " + String.format("%03d", (accountIndex + 1)));
+                    System.out.println("🔹 Account Holder: " + selectedAccount.getName());
                     System.out.println("=========================================================");
-                    System.out.println("Account Menu:");
                     System.out.println("1. Print balance");
                     System.out.println("2. Deposit");
                     System.out.println("3. Withdraw");
                     System.out.println("4. Change address");
                     System.out.println("5. Change phone");
                     System.out.println("6. Back to account selection");
-                    System.out.print("Enter your choice (1-6): ");
+                    System.out.print("👉 Enter your choice (1-6): ");
                     int choice = Integer.parseInt(scanner.nextLine());
 
-                    // Switch-case to handle user choices
+                    // Handle user choices
                     switch (choice) {
                         case 1:
-                            System.out.println("Current balance: " + selectedAccount.getFormattedBalance());
+                            System.out.println("\n💵 Current Balance: " + selectedAccount.getFormattedBalance());
                             break;
                         case 2:
-                            System.out.print("Enter deposit amount: $");
+                            System.out.print("\n💰 Enter deposit amount: $");
                             double depositAmount = Double.parseDouble(scanner.nextLine());
                             selectedAccount.deposit(depositAmount);
-                            System.out.println("New balance: " + selectedAccount.getFormattedBalance());
+                            System.out.println("✅ Deposit successful!");
+                            System.out.println("💵 New Balance: " + selectedAccount.getFormattedBalance());
                             totalDeposits += depositAmount;
+                            totalDepositCount++;
                             totalTransactions++;
                             break;
                         case 3:
-                            System.out.print("Enter withdrawal amount: $");
+                            System.out.print("\n💸 Enter withdrawal amount: $");
                             double withdrawalAmount = Double.parseDouble(scanner.nextLine());
-                            selectedAccount.withdrawal(withdrawalAmount);
-                            System.out.println("New balance: " + selectedAccount.getFormattedBalance());
-                            totalWithdrawals += withdrawalAmount;
-                            totalTransactions++;
+                            if (selectedAccount.withdrawal(withdrawalAmount)) {
+                                System.out.println("✅ Withdrawal successful!");
+                                System.out.println("💵 New Balance: " + selectedAccount.getFormattedBalance());
+                                totalWithdrawals += withdrawalAmount;
+                                totalWithdrawalCount++;
+                                totalTransactions++;
+                            } else {
+                                System.out.println("❌ Insufficient funds. Please try again.");
+                            }
                             break;
                         case 4:
-                            System.out.println("Change Address:");
-                            System.out.print("Enter new street: ");
+                            System.out.println("\n📝 Change Address:");
+                            System.out.print("🏠 Enter new street: ");
                             String newStreet = scanner.nextLine();
-                            System.out.print("Enter new city: ");
+                            System.out.print("🏙️ Enter new city: ");
                             String newCity = scanner.nextLine();
-                            System.out.print("Enter new state: ");
+                            System.out.print("📍 Enter new state: ");
                             String newState = scanner.nextLine();
-                            System.out.print("Enter new zip code: ");
+                            System.out.print("📮 Enter new zip code: ");
                             String newZip = scanner.nextLine();
                             selectedAccount.changeAddress(newStreet, newCity, newState, newZip);
-                            System.out.println("Address updated successfully.");
+                            System.out.println("✅ Address updated successfully.");
                             totalTransactions++;
                             break;
                         case 5:
-                            System.out.print("Enter new phone number: ");
+                            System.out.print("\n📞 Enter new phone number: ");
                             String newPhone = scanner.nextLine();
                             selectedAccount.changePhone(newPhone);
-                            System.out.println("Phone number updated successfully.");
+                            System.out.println("✅ Phone number updated successfully.");
                             totalTransactions++;
                             break;
                         case 6:
-                            System.out.println("Returning to account selection...");
+                            System.out.println("\n🔙 Returning to account selection...");
                             break;
                         default:
-                            System.out.println("Invalid choice. Please try again.");
+                            System.out.println("\n❌ Invalid choice. Please try again.");
                     }
 
-                    // Exit transaction loop if user chooses to go back
+                    // Exit account menu if user chooses to go back
                     if (choice == 6) break;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
+                System.out.println("\n❌ Invalid input. Please enter a valid number.");
             }
         }
 
         double totalBankMoneyFinish = calculateTotalBankMoney(accounts);
-        System.out.println("---------------------------------------------------");
-        System.out.println("Total money in the bank at finish: " + formatCurrency(totalBankMoneyFinish));
-        System.out.println("Total number of transactions: " + totalTransactions);
-        System.out.println("Total deposits: " + formatCurrency(totalDeposits));
-        System.out.println("Total withdrawals: " + formatCurrency(totalWithdrawals));
-        System.out.println("---------------------------------------------------");
+        System.out.println("\n===========================================================");
+        System.out.println("                    Summary of Transactions               ");
+        System.out.println("===========================================================");
+        System.out.println("🏦 Total money in the bank at finish: " + formatCurrency(totalBankMoneyFinish));
+        System.out.println("🔄 Total number of transactions: " + totalTransactions);
+        System.out.println("💰 Total deposits: " + formatCurrency(totalDeposits));
+        System.out.println("   ↳ Number of deposit transactions: " + totalDepositCount);
+        System.out.println("💸 Total withdrawals: " + formatCurrency(totalWithdrawals));
+        System.out.println("   ↳ Number of withdrawal transactions: " + totalWithdrawalCount);
+        System.out.println("===========================================================");
 
         scanner.close();
     }
@@ -216,4 +237,3 @@ public class Bank {
         return currencyFormatter.format(amount);
     }
 }
-

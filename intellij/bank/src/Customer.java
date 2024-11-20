@@ -1,4 +1,4 @@
-/*
+/**
  * Customer Class
  */
 
@@ -12,28 +12,23 @@ public class Customer {
     private String phoneNum;
 
     /**
-     * Default constructor method
+     * Default constructor.
+     * Initializes a customer with default values.
      */
     public Customer() {
-        firstName = "Ryan";
-        lastName = "Brinkman";
-        street = "4825 Granite Dr";
-        city = "Bismarck";
-        state = "ND";
-        zip = "58503";
-        phoneNum = "123-456-7890";
+        this("Ryan", "Brinkman", "4825 Granite Dr", "Bismarck", "ND", "58503", "123-456-7890");
     }
 
     /**
-     * Constructor method
+     * Parameterized constructor.
      *
-     * @param firstName Customer's first name
-     * @param lastName  Customer's last name
-     * @param street    Customer's street address
-     * @param city      Customer's city
-     * @param state     Customer's state
-     * @param zip       Customer's ZIP code
-     * @param phoneNum  Customer's phone number
+     * @param firstName Customer's first name.
+     * @param lastName  Customer's last name.
+     * @param street    Customer's street address.
+     * @param city      Customer's city.
+     * @param state     Customer's state.
+     * @param zip       Customer's ZIP code.
+     * @param phoneNum  Customer's phone number.
      */
     public Customer(String firstName, String lastName, String street, String city, String state, String zip, String phoneNum) {
         this.firstName = firstName;
@@ -45,165 +40,74 @@ public class Customer {
         this.phoneNum = phoneNum;
     }
 
-    /**
-     * Setter method
-     *
-     * @param firstName Set customer's first name
-     */
+    // Getter methods
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public String getPhone() {
+        return phoneNum;
+    }
+
+    // Setter methods
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    /**
-     * Setter method
-     *
-     * @param lastName Set customer's last name
-     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    /**
-     * Setter method
-     *
-     * @param street Set customer's street
-     */
     public void setStreet(String street) {
         this.street = street;
     }
 
-    /**
-     * Setter method
-     *
-     * @param city Set customer's city
-     */
     public void setCity(String city) {
         this.city = city;
     }
 
-    /**
-     * Setter method
-     *
-     * @param state Set customer's state
-     */
     public void setState(String state) {
         this.state = state;
     }
 
-    /**
-     * Setter method
-     *
-     * @param zip Set customer's ZIP code
-     */
     public void setZip(String zip) {
         this.zip = zip;
     }
 
-    /**
-     * Setter method
-     *
-     * @param phoneNum Set customer's phone number
-     */
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 
     /**
-     * Getter method
+     * Returns the customer's full details as a formatted string.
      *
-     * @return Customer's first name
+     * @return A string representation of the customer.
      */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * Getter method
-     *
-     * @return Customer's last name
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * Getter method
-     *
-     * @return Customer's street
-     */
-    public String getStreet() {
-        return street;
-    }
-
-    /**
-     * Getter method
-     *
-     * @return Customer's city
-     */
-    public String getCity() {
-        return city;
-    }
-
-    /**
-     * Getter method
-     *
-     * @return Customer's state
-     */
-    public String getState() {
-        return state;
-    }
-
-    /**
-     * Getter method
-     *
-     * @return Customer's ZIP code
-     */
-    public String getZip() {
-        return zip;
-    }
-
-    /**
-     * Getter method
-     *
-     * @return Customer's phone number
-     */
-    public String getPhone() {
-        return phoneNum;
-    }
-
-    /**
-     * Setter method
-     *
-     * @param newPhoneNum New phone number to set
-     */
-    public void changePhone(String newPhoneNum) {
-        this.phoneNum = newPhoneNum;
-    }
-
-    /**
-     * Setter method
-     *
-     * @param newFirstName New first name to set
-     */
-    public void changeFirstName(String newFirstName) {
-        this.firstName = newFirstName;
-    }
-
-    /**
-     * Setter method
-     *
-     * @param newLastName New last name to set
-     */
-    public void changeLastName(String newLastName) {
-        this.lastName = newLastName;
-    }
-
-    /**
-     * Getter method
-     *
-     * @return Customer's information as a String
-     */
+    @Override
     public String toString() {
-        return firstName + " " + lastName + "\n" + street + "\n" + city + ", " + state + " " + zip + "\n" + "Phone: " + phoneNum;
+        return String.format(
+                "%s %s\n%s\n%s, %s %s\nPhone: %s",
+                firstName, lastName, street, city, state, zip, phoneNum
+        );
     }
 }
