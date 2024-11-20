@@ -7,6 +7,6 @@
 
 public class Puck {
     public static void main(String[] args) {
-        
+
     }
 }
