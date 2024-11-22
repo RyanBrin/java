@@ -1,21 +1,22 @@
 /**
- * Disk class
+ * Represents a disk, which is a circle with an added thickness dimension.
  */
 public class Disk extends Circle {
     private double thickness;
 
     /**
-     * Default constructor method to initialize thickness to 1
+     * Default constructor that initializes the thickness to 1.
      */
     public Disk() {
-        thickness = 1;
+        super(); // Calls the Circle default constructor
+        this.thickness = 1;
     }
 
     /**
-     * Constructor method to initialize thickness based on
+     * Constructor that initializes the radius and thickness.
      *
-     * @param radius    Disk's radius
-     * @param thickness Disk's thickness'
+     * @param radius    The radius of the disk.
+     * @param thickness The thickness of the disk.
      */
     public Disk(double radius, double thickness) {
         super(radius);
@@ -23,43 +24,48 @@ public class Disk extends Circle {
     }
 
     /**
-     * Setter method to set thickness to specified value
+     * Sets the thickness of the disk.
+     *
+     * @param thickness The new thickness value.
      */
-    public void setThickness(double radius) {
+    public void setThickness(double thickness) {
         this.thickness = thickness;
     }
 
     /**
-     * Getter method to get thickness
-     * @return Disk's thickness
+     * Gets the thickness of the disk.
+     *
+     * @return The thickness of the disk.
      */
     public double getThickness() {
         return thickness;
     }
 
     /**
-     * Calculate and return the volume of the disk
-     * @return Disk's volume
+     * Calculates and returns the volume of the disk.
+     *
+     * @return The volume of the disk.
      */
     public double getVolume() {
         return Math.PI * Math.pow(super.getRadius(), 2) * thickness;
     }
 
     /**
-     * Calculate and return the surface area of the disk
-     * @return Disk's surface area
+     * Calculates and returns the surface area of the disk.
+     *
+     * @return The surface area of the disk.
      */
     public double getSurfaceArea() {
         return 2 * super.getArea() + thickness * super.getCircumference();
     }
 
     /**
-     * Return a string representation of the Disk object's respected values
-     * @return Disk's string representation
+     * Returns a string representation of the disk, including its radius and thickness.
+     *
+     * @return A string representation of the disk.
      */
+    @Override
     public String toString() {
-        String diskString = super.toString();
-        diskString +=  "\nThe thickness of the disk is" + thickness;
-        return diskString;
+        return super.toString() + "\nThe thickness of the disk is: " + thickness;
     }
 }

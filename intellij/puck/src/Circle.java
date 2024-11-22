@@ -1,63 +1,69 @@
 /**
- * Circle Class
+ * Represents a circle defined by a radius.
  */
 public class Circle {
     private double radius;
-    private static final double PI = 3.14159;
+    private static final double PI = Math.PI;
 
     /**
-     * Default constructor method to initialize radius
+     * Default constructor that initializes the radius to 1.
      */
     public Circle() {
-        radius = 1;
+        this.radius = 1;
     }
 
     /**
-     * Constructor method to initialize radius to specified value
-     */
-    public Circle(double r) {
-        radius = r;
-    }
-
-    /**
-     * Setter or modifier method
+     * Constructor that initializes the radius to the specified value.
      *
-     * @param newRadius A new radius value is provided
+     * @param radius The radius of the circle.
      */
-    public void setRadius(double newRadius) {
-        this.radius = newRadius;
+    public Circle(double radius) {
+        this.radius = radius;
     }
 
     /**
-     * Getter method or accessor method
-     * @return The area of the circle
+     * Sets the radius of the circle.
+     *
+     * @param radius The new radius value.
      */
-    public double getArea() {
-        return PI * radius * radius;
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 
     /**
-     * Getter method or accessor method
-     * @return The radius of the circle
+     * Gets the radius of the circle.
+     *
+     * @return The radius of the circle.
      */
     public double getRadius() {
         return radius;
     }
 
     /**
-     * Getter method of accessor method
-     * @return The circumference of the circle
+     * Calculates and returns the area of the circle.
+     *
+     * @return The area of the circle.
+     */
+    public double getArea() {
+        return PI * radius * radius;
+    }
+
+    /**
+     * Calculates and returns the circumference of the circle.
+     *
+     * @return The circumference of the circle.
      */
     public double getCircumference() {
         return 2 * PI * radius;
     }
 
     /**
-     * Getter method
-     * @return The radius of the circle as a String
+     * Returns a string representation of the circle, including its radius.
+     *
+     * @return A string representation of the circle.
      */
+    @Override
     public String toString() {
-        String circleString = ("The circle has a radius of " + radius);
-        return circleString;
+        return "The circle has a radius of " + radius;
     }
 }
