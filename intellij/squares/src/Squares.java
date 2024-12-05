@@ -29,5 +29,22 @@ public class Squares {
 
         for (int j = 0; j < square.length; j++)
             System.out.println(j + " " + square[j]);
+
+        scanner.close(); // Close the scanner
+
+        System.out.println();
+
+        System.out.println("Countdown");
+
+        for (int i = 10; i >= 0; i--) {
+            System.out.println(i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println("Blast off!");
     }
 }
