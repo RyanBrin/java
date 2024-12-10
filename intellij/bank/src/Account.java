@@ -6,7 +6,7 @@ import java.text.NumberFormat;
 
 public class Account {
     private double balance;
-    private Customer customer;
+    private final Customer customer;
 
     /**
      * Default Constructor
@@ -21,21 +21,23 @@ public class Account {
         this.customer.setCity("Anytown");
         this.customer.setState("CA");
         this.customer.setZip("12345");
+        this.customer.setPhoneNumber("123-456-7890");
     }
 
     /**
      * Parameterized Constructor
      * Initializes a new account with the specified balance and customer information.
      *
-     * @param balance   Initial account balance.
-     * @param firstName Customer's first name.
-     * @param lastName  Customer's last name.
-     * @param street    Customer's street address.
-     * @param city      Customer's city.
-     * @param state     Customer's state.
-     * @param zip       Customer's zip code.
+     * @param balance     Initial account balance.
+     * @param firstName   Customer's first name.
+     * @param lastName    Customer's last name.
+     * @param street      Customer's street address.
+     * @param city        Customer's city.
+     * @param state       Customer's state.
+     * @param zip         Customer's zip code.
+     * @param phoneNumber Customer's phone number.'
      */
-    public Account(double balance, String firstName, String lastName, String street, String city, String state, String zip) {
+    public Account(double balance, String firstName, String lastName, String street, String city, String state, String zip, String phoneNumber) {
         this.balance = balance;
         this.customer = new Customer();
         this.customer.setFirstName(firstName);
@@ -44,6 +46,7 @@ public class Account {
         this.customer.setCity(city);
         this.customer.setState(state);
         this.customer.setZip(zip);
+        this.customer.setPhoneNumber(phoneNumber);
     }
 
     /**
@@ -108,10 +111,10 @@ public class Account {
     /**
      * Updates the customer's phone number.
      *
-     * @param newPhone The new phone number.
+     * @param newPhoneNumber The new phone number.
      */
-    public void changePhone(String newPhone) {
-        customer.setPhoneNum(newPhone);
+    public void changePhone(String newPhoneNumber) {
+        customer.setPhoneNumber(newPhoneNumber);
         System.out.println("✅ Phone number updated successfully.");
     }
 
@@ -152,5 +155,23 @@ public class Account {
     @Override
     public String toString() {
         return customer.toString() + "Current Balance: " + getFormattedBalance();
+    }
+
+    /**
+     * Returns the full address of the customer
+     *
+     * @return the full address of the customer
+     */
+    public String getFullAddress() {
+        return customer.getStreet() + ", " + customer.getCity() + ", " + customer.getState() + " " + customer.getZip();
+    }
+
+    /**
+     * Returns the customer's phone number
+     *
+     * @return the customer's phone number
+     */
+    public String getPhoneNumber() {
+        return customer.getPhoneNumber();
     }
 }

@@ -9,7 +9,7 @@ public class Customer {
     private String city;
     private String state;
     private String zip;
-    private String phoneNum;
+    private String phoneNumber;
 
     /**
      * Default constructor.
@@ -28,16 +28,16 @@ public class Customer {
      * @param city      Customer's city.
      * @param state     Customer's state.
      * @param zip       Customer's ZIP code.
-     * @param phoneNum  Customer's phone number.
+     * @param phoneNumber  Customer's phone number.
      */
-    public Customer(String firstName, String lastName, String street, String city, String state, String zip, String phoneNum) {
+    public Customer(String firstName, String lastName, String street, String city, String state, String zip, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.street = street;
         this.city = city;
         this.state = state;
         this.zip = zip;
-        this.phoneNum = phoneNum;
+        this.phoneNumber = phoneNumber;
     }
 
     // Getter methods
@@ -65,8 +65,8 @@ public class Customer {
         return zip;
     }
 
-    public String getPhone() {
-        return phoneNum;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     // Setter methods
@@ -94,8 +94,8 @@ public class Customer {
         this.zip = zip;
     }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     /**
@@ -107,7 +107,7 @@ public class Customer {
     public String toString() {
         return String.format(
                 "%s %s\n%s\n%s, %s %s\nPhone: %s",
-                firstName, lastName, street, city, state, zip, phoneNum
+                firstName, lastName, street, city, state, zip, phoneNumber
         );
     }
 }
