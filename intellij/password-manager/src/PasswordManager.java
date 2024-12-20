@@ -13,9 +13,10 @@ import java.util.Scanner;
 public class PasswordManager {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            Scanner scanner = new Scanner(System.in);
+
             System.out.println("Welcome to Password Manager!");
             System.out.println("1. Create an Account");
             System.out.println("2. Log In");
@@ -114,11 +115,11 @@ public class PasswordManager {
 
         while (true) {
             System.out.println("\nPassword Management Menu:");
-            System.out.println("1. Create a new service password");
-            System.out.println("2. View saved passwords");
-            System.out.println("3. Edit a service password");
-            System.out.println("4. Delete a service password");
-            System.out.println("5. Delete your account");
+            System.out.println("1. View saved passwords");
+            System.out.println("2. View a specific password");
+            System.out.println("3. Create a new service password");
+            System.out.println("4. Edit a service password");
+            System.out.println("5. Delete a service password");
             System.out.println("6. Logout");
             System.out.print("Choose an option: ");
 
@@ -127,20 +128,20 @@ public class PasswordManager {
 
             switch (choice) {
                 case 1:
-                    createServicePassword(scanner, serviceDir);
-                    break;
-                case 2:
                     viewSavedPasswords(serviceDir);
                     break;
+                case 2:
+                    viewSpecificPassword(scanner, serviceDir);
+                    break;
                 case 3:
-                    editServicePassword(scanner, serviceDir);
+                    createServicePassword(scanner, serviceDir);
                     break;
                 case 4:
-                    deleteServicePassword(scanner, serviceDir);
+                    editServicePassword(scanner, serviceDir);
                     break;
                 case 5:
-                    deleteAccount(serviceDir, username);
-                    return;
+                    deleteServicePassword(scanner, serviceDir);
+                    break;
                 case 6:
                     System.out.println("Logged out successfully.");
                     return;
@@ -182,6 +183,25 @@ public class PasswordManager {
         }
     }
 
+    private static void viewSpecificPassword(Scanner scanner, File serviceDir) {
+        System.out.print("Enter the service name to view the password: ");
+        String serviceName = scanner.nextLine();
+
+        File serviceFile = new File(serviceDir, serviceName + ".txt");
+        if (!serviceFile.exists()) {
+            System.out.println("Service not found.");
+            return;
+        }
+
+        try (Scanner fileScanner = new Scanner(serviceFile)) {
+            String password = fileScanner.nextLine().split(":")[1];
+            System.out.println("Password for " + serviceName + ": " + password);
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the password.");
+            e.printStackTrace();
+        }
+    }
+
     private static void editServicePassword(Scanner scanner, File serviceDir) {
         System.out.print("Enter the service name to edit (e.g., Netflix, Gmail): ");
         String serviceName = scanner.nextLine();
@@ -207,34 +227,11 @@ public class PasswordManager {
     private static void deleteServicePassword(Scanner scanner, File serviceDir) {
         System.out.print("Enter the service name to delete (e.g., Netflix, Gmail): ");
         String serviceName = scanner.nextLine();
-
         File serviceFile = new File(serviceDir, serviceName + ".txt");
         if (serviceFile.delete()) {
             System.out.println("Password for " + serviceName + " deleted successfully!");
         } else {
             System.out.println("Service not found or unable to delete.");
         }
-    }
-
-    private static void deleteAccount(File serviceDir, String username) {
-        String userFilePath = "data/users/" + username + ".txt";
-        File userFile = new File(userFilePath);
-
-        File[] serviceFiles = serviceDir.listFiles();
-        if (serviceFiles != null) {
-            for (File serviceFile : serviceFiles) {
-                serviceFile.delete();
-            }
-        }
-
-        if (serviceDir.delete() && userFile.delete()) {
-            System.out.println("Account deleted successfully.");
-        } else {
-            System.out.println("An error occurred while deleting the account.");
-        }
-    }
-
-    private static void printServicePassword(String serviceName, String password) {
-        System.out.println("Password for " + serviceName + ": " + password);
     }
 }
