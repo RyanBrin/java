@@ -33,14 +33,4 @@ class User {
     public String getPassword() {
         return password;
     }
-
-    /**
-     * Returns a string representation of the User object.
-     *
-     * @return a string representation of the User, including the username
-     */
-    @Override
-    public String toString() {
-        return "User{" + "username='" + username + '\'' + '}';
-    }
 }
