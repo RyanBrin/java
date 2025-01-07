@@ -1,4 +1,4 @@
-/*
+/**
  * Project: Password Manager
  * Author: Ryan Brinkman
  * Date: 12/18/2024
@@ -8,31 +8,40 @@
 import java.util.Scanner;
 
 /**
- * A simple command-line password manager for managing accounts and service passwords.
+ * PasswordManager Class
+ * Serves as the main entry point for the Password Manager application.
+ * This command-line application allows users to manage accounts and their corresponding service passwords.
  */
 public class PasswordManager {
 
     /**
-     * The main entry point for the Password Manager application.
-     * Initializes the application and displays the main menu.
+     * The main method initializes the Password Manager application and handles user interactions.
      *
      * @param args Command-line arguments (not used).
      */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // Create scanner object
-        PasswordManagerApp app = new PasswordManagerApp(scanner); // Create password manager object
+        // Initialize a Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
 
-        // Main loop for displaying the main menu and handling user choices.
+        // Create an instance of the PasswordManagerApp, passing the Scanner as a parameter
+        PasswordManagerApp app = new PasswordManagerApp(scanner);
+
+        /**
+         * The Scanner object is passed to the PasswordManagerApp instance, enabling consistent input handling.
+         * The PasswordManagerApp will use this Scanner instance to read user input throughout the application.
+         */
+
+        // Main loop to display the main menu and process user choices
         while (true) {
-            app.displayMainMenu(); // Call display main menu function within the Password Manager application class.
-            int choice = app.getChoice();
+            app.displayMainMenu(); // Display the main menu options to the user
+            int choice = app.getChoice(); // Get the user's choice from the menu
 
-            // Switch statement to handle user choices and perform the corresponding actions.
+            // Handle the user's choice with a switch statement
             switch (choice) {
-                case 1 -> app.createAccount();
-                case 2 -> app.logIn();
-                case 3 -> app.exitProgram();
-                default -> System.out.println("Invalid choice. Please try again.");
+                case 1 -> app.createAccount();   // Option to create a new account
+                case 2 -> app.logIn();          // Option to log in to an existing account
+                case 3 -> app.exitProgram();    // Option to exit the application
+                default -> System.out.println("Invalid choice. Please try again."); // Handle invalid input
             }
         }
     }

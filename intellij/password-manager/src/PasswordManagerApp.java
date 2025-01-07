@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
+ * Password Manager App Class
  * Handles the core functionalities of the Password Manager application.
+ * Acts as a helper class called by the main class to manage user accounts and passwords.
  */
 class PasswordManagerApp {
-    private final Scanner scanner; // Create scanner object privately used by PasswordManagerApp class
+    private final Scanner scanner;
 
     /**
      * Constructs a PasswordManagerApp instance with the provided scanner.
@@ -37,7 +39,7 @@ class PasswordManagerApp {
     public int getChoice() {
         try {
             return Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e) { // Catch error for invalid input unconvertible to integer
+        } catch (NumberFormatException e) { // Catch error for invalid input convertible to integer
             return -1; // Invalid input return
         }
     }
@@ -163,7 +165,7 @@ class PasswordManagerApp {
      *
      * @param paths Varargs of directory paths to create.
      */
-    private void createDirectories(String... paths) { // Allows for a non-specified number of paths to be specified.
+    private void createDirectories(String... paths) { // Allows for a non-specified number of paths to be specified. (Under the hood array '[]')
         for (String path : paths) {
             new File(path).mkdirs(); // Create a directory and any non-existing parent directories used with the directory.
         }
@@ -267,7 +269,7 @@ class PasswordManagerApp {
 
         // Create a new service file with the service name and password
         File serviceFile = new File(serviceDir, serviceName + ".txt");
-        writeToFile(serviceFile.getAbsolutePath(), "password:" + password);
+        writeToFile(serviceFile.getAbsolutePath(), "servicePassword:" + password);
     }
 
     /**
@@ -291,7 +293,7 @@ class PasswordManagerApp {
         String password = scanner.nextLine();
 
         // Write new service password to the file
-        writeToFile(serviceFile.getAbsolutePath(), "password:" + password);
+        writeToFile(serviceFile.getAbsolutePath(), "servicePassword:" + password);
     }
 
     /**

@@ -1,4 +1,5 @@
 /**
+ * User Class
  * Represents a user in the system.
  */
 class User {
@@ -14,6 +15,12 @@ class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+
+        /*
+         * Because no one knows how to use '.this':
+         * Used when you have an instance variable shadowed by a local variable
+         * Use '.this' to reference that variable explicitly
+         */
     }
 
     /**
