@@ -5,8 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ace57974-8920-4b33-98f5-b09a2fabbd7a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../display-shapes/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../display-shapes/.idea/easycode.ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../display-shapes/.idea/easycode/codebase-v2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../display-shapes/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../display-shapes/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../display-shapes/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../display-shapes/display-shapes.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../display-shapes/src/DisplayShapes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../div-and-mod/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../div-and-mod/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../div-and-mod/.idea/easycode.ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../div-and-mod/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../div-and-mod/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../div-and-mod/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../div-and-mod/div-and-mod.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../div-and-mod/src/DivAndMod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../house/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../house/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../house/.idea/easycode.ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../house/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../house/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../house/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../house/house.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../house/src/House.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../password-manager/.idea/easycode.ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../password-manager/data/users/JohnProctor-services/Tiktok.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../password-manager/data/users/JohnProctor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../password-manager/src/PasswordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../password-manager/src/PasswordManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../display-shapes/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/easycode.ignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easycode.ignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sleep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sleep.java" afterDir="false" />
