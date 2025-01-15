@@ -1,52 +1,38 @@
-/*
-* Ryan Brinkman
-* Sleep
-* Page 101
-* 8/30/2024
-*/
+/**
+ * Project: Sleep
+ * Author: Ryan Brinkman
+ * Date: 1/14/2025
+ * Repository: https://github.com/RyanBrin/java/tree/main/intellij/sleep/
+ */
 
 import java.util.Scanner;
 
-public class Sleep
-{
-    public static void main(String[] args)
-    {
-        // declare variables
-        int birthYear;
-        int birthMonth;
-        int birthDay;
-        int currentYear;
-        int currentMonth;
-        int currentDay;
-        int days;
-        int hours;
+public class Sleep {
+    public static void main(String[] args) {
+        Scanner Scanner = new Scanner(System.in);
 
-        Scanner slave = new Scanner(System.in); // create scanner object to read user input
-
-        // get user input for birthdate and today's date
         System.out.println("Enter your birthdate:");
         System.out.print("Year: ");
-        birthYear = slave.nextInt();
+        int birthYear = Scanner.nextInt();
         System.out.print("Month: ");
-        birthMonth = slave.nextInt();
+        int birthMonth = Scanner.nextInt();
         System.out.print("Day: ");
-        birthDay = slave.nextInt();
+        int birthDay = Scanner.nextInt();
+
         System.out.println("Enter today's date:");
         System.out.print("Year: ");
-        currentYear = slave.nextInt();
+        int currentYear = Scanner.nextInt();
         System.out.print("Month: ");
-        currentMonth = slave.nextInt();
+        int currentMonth = Scanner.nextInt();
         System.out.print("Day: ");
-        currentDay = slave.nextInt();
+        int currentDay = Scanner.nextInt();
 
-        // calculate the number of days and hours since birthdate
-        days = ((currentYear * 365) + (currentMonth * 30) + (currentDay)) - ((birthYear * 365) + (birthMonth * 30) + (birthDay));
-        hours = days * 8;
+        Scanner.close();
 
-        // display results
+        int days = ((currentYear * 365) + (currentMonth * 30) + (currentDay)) - ((birthYear * 365) + (birthMonth * 30) + (birthDay));
+        int hours = days * 8;
+
         System.out.println("You have been alive for " + days + " days.");
         System.out.println("You have slept for " + hours + " hours.");
-
-        slave.close(); // closer scanner object to prevent resource leakage
     }
 }

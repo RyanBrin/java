@@ -38,9 +38,9 @@ public class PasswordManager {
 
             // Handle the user's choice with a switch statement
             switch (choice) {
-                case 1 -> app.createAccount();   // Option to create a new account
-                case 2 -> app.logIn();          // Option to log in to an existing account
-                case 3 -> app.exitProgram();    // Option to exit the application
+                case 1 -> app.createAccount();
+                case 2 -> app.logIn();
+                case 3 -> app.exitProgram();
                 default -> System.out.println("Invalid choice. Please try again."); // Handle invalid input
             }
         }
