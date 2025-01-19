@@ -151,8 +151,8 @@ class PasswordManagerApp {
      */
     private void displayPasswordMenu() {
         System.out.println("\nPassword Management Menu:");
-        System.out.println("1. View saved passwords");
-        System.out.println("2. View a specific password");
+        System.out.println("1. List saved services");
+        System.out.println("2. View a specific service password");
         System.out.println("3. Create a new service password");
         System.out.println("4. Edit a service password");
         System.out.println("5. Delete a service password");
