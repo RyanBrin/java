@@ -1,8 +1,9 @@
-/**
+/*
  * Project: Password Manager
  * Author: Ryan Brinkman
- * Date: 12/18/2024
- * Repository: https://github.com/RyanBrin/java/tree/main/intellij/password-manager/
+ * Date: December 18, 2024
+ * Description: A command-line application for managing accounts and their corresponding service passwords.
+ * GitHub Repository: https://github.com/RyanBrin/java/tree/main/intellij/password-manager/
  */
 
 import java.util.Scanner;
@@ -26,7 +27,7 @@ public class PasswordManager {
         // Create an instance of the PasswordManagerApp, passing the Scanner as a parameter
         PasswordManagerApp app = new PasswordManagerApp(scanner);
 
-        /**
+        /*
          * The Scanner object is passed to the PasswordManagerApp instance, enabling consistent input handling.
          * The PasswordManagerApp will use this Scanner instance to read user input throughout the application.
          */
