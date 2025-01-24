@@ -12,9 +12,9 @@
 
 public class PyramidApp {
     public static void main(String[] args) {
-        Pyramid Egypt0 = new Pyramid();
-        Pyramid Egypt1 = new Pyramid(16, 16, 15, 17);
-        Pyramid Egypt2 = new Pyramid(66, 66, 56, 65);
+        Pyramid Egypt0 = new Pyramid();          // Default pyramid
+        Pyramid Egypt1 = new Pyramid(16, 15, 17); // Pyramid with custom dimensions
+        Pyramid Egypt2 = new Pyramid(66, 56, 65); // Another custom pyramid
 
         Egypt0.printPyramidDetails();
         System.out.println();
