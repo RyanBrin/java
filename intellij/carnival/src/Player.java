@@ -6,11 +6,13 @@
 public class Player {
     private double money;
     private final StringBuilder prizesWon;
+    private final String player;
 
     /**
      * Creates a new player with no initial money and no prizes.
      */
     public Player() {
+        this.player = "John";
         this.money = 0;
         this.prizesWon = new StringBuilder();
     }
@@ -20,7 +22,8 @@ public class Player {
      *
      * @param money The initial amount of money the player has.
      */
-    public Player(double money) {
+    public Player(String player, double money) {
+        this.player = player;
         this.money = money;
         this.prizesWon = new StringBuilder();
     }
@@ -32,6 +35,15 @@ public class Player {
      */
     public double getMoney() {
         return money;
+    }
+
+    /**
+     * Gets the name of the player.
+     *
+     * @return The name of the player
+     */
+    public String getName() {
+        return player;
     }
 
     /**
@@ -62,8 +74,6 @@ public class Player {
     public void subtractMoney(double amount) {
         if (amount > 0 && money >= amount) {
             this.money -= amount;
-        } else {
-            System.out.println("Insufficient funds!");
         }
     }
 
@@ -77,16 +87,21 @@ public class Player {
     }
 
     /**
-     * Adds a prize to the player's collection, ensuring no duplicate entries.
+     * Plays the specified game and rewards the user their prize upon completion.
      *
-     * @param prize The prize to add.
+     * @param game The game to play
      */
-    public void addPrize(String prize) {
-        if (prize != null && !prize.trim().isEmpty() && !prizesWon.toString().contains(prize)) {
-            if (!prizesWon.isEmpty()) {
-                prizesWon.append(", ");
+    public String play(GameBooth game) {
+        if (game.getPrice() > money) {
+            subtractMoney(game.getPrice());
+            prizesWon.append(game.getFirstPrize());
+            if (!prizesWon.toString().contains(game.getConsolationPrize())) {
+                prizesWon.append(", ").append(game.getConsolationPrize());
             }
-            prizesWon.append(prize);
+            System.out.println("Congratulations! You won: " + prizesWon);
+        } else {
+            System.out.println("Insufficient funds! You need " + game.getPrice() + " to play.");
         }
+        return "";
     }
 }

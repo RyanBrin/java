@@ -6,18 +6,30 @@ import java.util.Random;
  * Players pay a fee to play the game and have a chance to win a prize.
  */
 public class GameBooth {
+    private final String name;
     private final double price;
     private final String firstPrize;
     private final String consolationPrize;
 
     /**
+     * Constructs a default {@code GameBooth} with a default name, price, and prizes.
+     */
+    public GameBooth() {
+        this.name = "Blackjack";
+        this.price = 8;
+        this.firstPrize = "Blackjack Card Stick";
+        this.consolationPrize = "Chips";
+    }
+
+    /**
      * Constructs a {@code GameBooth} with a specified price and prizes.
      *
-     * @param price The cost to play the game.
-     * @param firstPrize The prize awarded for a perfect win.
+     * @param price            The cost to play the game.
+     * @param firstPrize       The prize awarded for a perfect win.
      * @param consolationPrize The prize given when the player does not win the first prize.
      */
-    public GameBooth(double price, String firstPrize, String consolationPrize) {
+    public GameBooth(String name, double price, String firstPrize, String consolationPrize) {
+        this.name = name;
         this.price = price;
         this.firstPrize = firstPrize;
         this.consolationPrize = consolationPrize;
@@ -30,6 +42,15 @@ public class GameBooth {
      */
     public double getPrice() {
         return price;
+    }
+
+    /**
+     * Gets the name of the booth.
+     *
+     * @return The name of the game booth.
+     */
+    public String getName() {
+        return name;
     }
 
     /**
@@ -71,9 +92,9 @@ public class GameBooth {
 
         // Determine prize based on number of wins
         if (wins == 3) {
-            return "Congratulations! You won the first prize: " + firstPrize;
+            return firstPrize;
         } else {
-            return "Sorry, you lost. Your consolation prize is: " + consolationPrize;
+            return consolationPrize;
         }
     }
 }
