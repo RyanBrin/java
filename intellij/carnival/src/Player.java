@@ -92,13 +92,16 @@ public class Player {
      * @param game The game to play
      */
     public String play(GameBooth game) {
-        if (game.getPrice() > money) {
+        if (money >= game.getPrice()) {
             subtractMoney(game.getPrice());
-            prizesWon.append(game.getFirstPrize());
-            if (!prizesWon.toString().contains(game.getConsolationPrize())) {
-                prizesWon.append(", ").append(game.getConsolationPrize());
+            String prize = game.playGame();
+            if (!prizesWon.toString().contains(prize)) {
+                if (!prizesWon.isEmpty()) {
+                    prizesWon.append(", ");
+                }
+                prizesWon.append(prize);
             }
-            System.out.println("Congratulations! You won: " + prizesWon);
+            System.out.println("Congratulations! You won: " + prize);
         } else {
             System.out.println("Insufficient funds! You need " + game.getPrice() + " to play.");
         }
