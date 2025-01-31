@@ -1,17 +1,13 @@
 /**
- * Piccolo Class
+ * Piccolo class
  */
-public class Piccolo extends Woodwind {
+public class Piccolo extends Instrument {
     public Piccolo(String musician) {
         super(musician);
     }
 
     @Override
-    public String play() {
-        return("chirp");
-    }
-
-    public String toString() {
-        return super.getMusician() + " plays " + play() + ".";
+    public String makeSound() {
+        return "chirp chirp";
     }
 }

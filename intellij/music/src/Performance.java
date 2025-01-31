@@ -3,14 +3,18 @@
  */
 public class Performance {
     private String arrangement;
-    private Instrument solo;
-    private Instrument duet0;
-    private Instrument duet1;
+    private Instrument[] musicians;
 
-
-
-    public Performance(String arrangement) {
+    public Performance(String arrangement, Instrument... musicians) {
         this.arrangement = arrangement;
-        this.solo = solo.getMusician() + " plays" + solo.makeSound();
+        this.musicians = musicians;
+    }
+
+    public void playPerformance() {
+        System.out.println("🎶 Now performing: \"" + arrangement + "\" 🎶\n");
+
+        for (Instrument musician : musicians) {
+            System.out.println(musician.getMusician() + " is playing " + musician.getClass().getSimpleName() + " 🎵: " + musician.makeSound());
+        }
     }
 }
