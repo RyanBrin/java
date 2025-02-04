@@ -68,11 +68,7 @@ public class Music {
             case "5": return new Trombone(name);
             case "6": return new Drums(name);
             case "7": return new Xylophone(name);
-            case "8": return new Violin(name);
-            case "9": return new Guitar(name);
-            case "10": return new Saxophone(name);
-            case "11": return new Flute(name);
-            case "12": return new Piano(name);
+            case "8": return new Flute(name);
             default:
                 System.out.println("Invalid selection. Please try again.");
                 return assignInstrument(scanner);
