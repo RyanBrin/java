@@ -4,7 +4,8 @@ import java.util.Scanner;
  * TestPyramid Class
  * A test class for creating and interacting with Pyramid objects.
  * It prompts the user for dimensions, calculates missing values if needed,
- * and displays the pyramid's details.
+ * and displays the pyramid's detail8
+ * s.
  */
 public class TestPyramid {
     public static void main(String[] args) {

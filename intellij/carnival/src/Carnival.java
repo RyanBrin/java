@@ -59,7 +59,32 @@ public class Carnival {
         playGame(Luis, rouletteWheel);
         playGame(Shonda, breakAPlate);
 
+        // Printing winnings and player's remaining balance for each player'
+        printWinnings(Shonda);
+        printWinnings(Luis);
+        printWinnings(Ryan);
+        printWinnings(Emily);
+        printWinnings(Alex);
+        printWinnings(Jessica);
+
+        // Print number of prizes given out by each booth
+        System.out.println("Number of prizes given out by each booth:");
+        System.out.println("Balloon Dart Toss: " + balloonDartToss.getPrizesGiven());
+        System.out.println("Giant Squid Catcher: " + giantSquidCatcher.getPrizesGiven());
+        System.out.println("Whack-A-Mole: " + whackAMole.getPrizesGiven());
+        System.out.println("Slot Machine: " + slotMachine.getPrizesGiven());
+        System.out.println("Candy Cane Crusher: " + candyCaneCrusher.getPrizesGiven());
+        System.out.println("Russian Roulette: " + russianRoulette.getPrizesGiven());
+        System.out.println("Treasure Hunt: " + treasureHunt.getPrizesGiven());
+
         System.out.println("\n🎊 The carnival fun is over! Thanks for playing! 🎊");
+    }
+
+    // Print what each player won and player's remaining balance
+    public static void printWinnings(Player player) {
+        System.out.println(player.getName() + " won: " + player.getPrizesWon());
+        System.out.println("Remaining balance: $" + player.getMoney());
+        System.out.println();
     }
 
     // Helper method to simulate a player playing a game

@@ -1,69 +1,73 @@
 import java.util.Random;
 
 /**
- * GameBooth class
- * The {@code GameBooth} class represents a carnival game booth.
- * Players pay a fee to play the game and have a chance to win a prize.
+ * Represents a carnival game booth where players can pay to play and win prizes.
  */
 public class GameBooth {
     private final String name;
     private final double price;
     private final String firstPrize;
     private final String consolationPrize;
+    private int prizesGiven;
 
     /**
-     * Constructs a default {@code GameBooth} with a default name, price, and prizes.
+     * Constructs a default {@code GameBooth} with preset values.
+     * The default game is "Blackjack" with a price of $8.
+     * The first prize is a "Blackjack Card Stick" and the consolation prize is "Chips".
      */
     public GameBooth() {
         this.name = "Blackjack";
         this.price = 8;
         this.firstPrize = "Blackjack Card Stick";
         this.consolationPrize = "Chips";
+        this.prizesGiven = 0;
     }
 
     /**
-     * Constructs a {@code GameBooth} with a specified price and prizes.
+     * Constructs a {@code GameBooth} with specified parameters.
      *
+     * @param name             The name of the game booth.
      * @param price            The cost to play the game.
-     * @param firstPrize       The prize awarded for a perfect win.
-     * @param consolationPrize The prize given when the player does not win the first prize.
+     * @param firstPrize       The grand prize awarded for winning.
+     * @param consolationPrize The prize awarded when the player does not win the grand prize.
      */
     public GameBooth(String name, double price, String firstPrize, String consolationPrize) {
         this.name = name;
         this.price = price;
         this.firstPrize = firstPrize;
         this.consolationPrize = consolationPrize;
+        this.prizesGiven = 0;
     }
 
     /**
-     * Retrieves the cost to play the game.
+     * Returns the cost of playing the game.
      *
-     * @return The price of a single game round.
+     * @return The price to play one round of the game.
      */
     public double getPrice() {
         return price;
     }
 
     /**
-     * Gets the name of the booth.
+     * Returns the name of the game booth.
      *
-     * @return The name of the game booth.
+     * @return The name of the booth.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Retrieves the first prize for winning the game.
+     * Returns the first-place prize awarded to winners.
      *
-     * @return The first-place prize.
+     * @return The grand prize for winning the game.
      */
     public String getFirstPrize() {
         return firstPrize;
     }
 
     /**
-     * Retrieves the consolation prize for not winning the first prize.
+     * Returns the consolation prize awarded to non-winners.
      *
      * @return The consolation prize.
      */
@@ -72,17 +76,26 @@ public class GameBooth {
     }
 
     /**
-     * Simulates playing the game. The player has three attempts to win.
-     * If the player gets three wins, they receive the first prize.
+     * Returns the total number of prizes given out by the booth.
+     *
+     * @return The number of prizes distributed.
+     */
+    public int getPrizesGiven() {
+        return prizesGiven;
+    }
+
+    /**
+     * Simulates a game round where the player has three attempts to win.
+     * A win is determined randomly. If the player wins all three attempts, they receive the first prize.
      * Otherwise, they receive the consolation prize.
      *
-     * @return A message indicating whether the player won the first prize or the consolation prize.
+     * @return The prize awarded to the player after playing the game.
      */
     public String playGame() {
         Random random = new Random();
         int wins = 0;
 
-        // Player gets three attempts to win.
+        // The player has three attempts to win.
         for (int i = 0; i < 3; i++) {
             int randomNumber = random.nextInt(3) + 1; // Random number between 1 and 3
             if (randomNumber == 1) {
@@ -90,11 +103,8 @@ public class GameBooth {
             }
         }
 
-        // Determine prize based on number of wins
-        if (wins == 3) {
-            return firstPrize;
-        } else {
-            return consolationPrize;
-        }
+        // Determine the prize based on the number of wins
+        prizesGiven++;
+        return (wins == 3) ? firstPrize : consolationPrize;
     }
 }
