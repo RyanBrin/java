@@ -100,7 +100,7 @@ public class TicketMaster {
         System.out.println("\n🎭 Seating Arrangement:");
         for (Seat[] row : seats) {
             for (Seat seat : row) {
-                System.out.print(seat.isAvailable() ? "[" + seat.getSeatNumber() + "] " : "[🔴] ");
+                System.out .print(seat.isAvailable() ? "[" + seat.getSeatNumber() + "] " : "[🔴] ");
             }
             System.out.println();
         }
