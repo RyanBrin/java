@@ -1,55 +1,48 @@
 /**
- * Seat Class
- * Represents a seat in the TicketMaster system.
+ * Seat class representing an individual seat in the TicketMaster system.
  */
 class Seat {
     private final String seatNumber;
     private final double price;
-    private boolean reserved;
+    private String reservedBy;
 
+    /**
+     * Constructor for a Seat.
+     * @param seatNumber The seat's unique identifier.
+     * @param price The price of the seat.
+     */
     public Seat(String seatNumber, double price) {
         this.seatNumber = seatNumber;
         this.price = price;
-        this.reserved = false;
+        this.reservedBy = null;
     }
 
     /**
-     * Attempts to reserve the seat. If already reserved, prints an error message.
-     * @return true if reservation is successful, false otherwise.
+     * Reserves the seat for a specific customer.
+     * @param name The name of the customer reserving the seat.
      */
-    public boolean reserve() {
-        if (!reserved) {
-            reserved = true;
-            return true;
-        }
-        System.out.println("❌ Seat [" + seatNumber + "] is already reserved.");
-        return false;
+    public void reserve(String name) {
+        reservedBy = name;
     }
 
     /**
-     * Attempts to cancel a reservation. If not reserved, prints an error message.
-     * @return true if cancellation is successful, false otherwise.
+     * Cancels the reservation for this seat.
      */
-    public boolean cancelReservation() {
-        if (reserved) {
-            reserved = false;
-            return true;
-        }
-        System.out.println("❌ Seat [" + seatNumber + "] is not reserved.");
-        return false;
+    public void cancelReservation() {
+        reservedBy = null;
     }
 
     /**
-     * Checks if the seat is available for reservation.
-     * @return true if the seat is available, false otherwise.
+     * Checks if the seat is available.
+     * @return true if the seat is not reserved, false otherwise.
      */
     public boolean isAvailable() {
-        return !reserved;
+        return reservedBy == null;
     }
 
     /**
      * Gets the seat number.
-     * @return seat number as a string.
+     * @return The seat's identifier.
      */
     public String getSeatNumber() {
         return seatNumber;
@@ -57,9 +50,17 @@ class Seat {
 
     /**
      * Gets the price of the seat.
-     * @return price of the seat.
+     * @return The price of the seat.
      */
     public double getPrice() {
         return price;
+    }
+
+    /**
+     * Gets the name of the customer currently reserving the seat.
+     * @return The name of the customer reserving the seat, or null if no one is reserved.
+     */
+    public String getReservedBy() {
+        return reservedBy;
     }
 }
