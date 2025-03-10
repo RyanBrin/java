@@ -1,8 +1,8 @@
 /*
- * Ryan Brinkman
- * Test Circle
- * Page 180
- * 10/30/2024
+ * Project: Circle
+ * Author: Ryan Brinkman
+ * Date: October 30, 2024
+ * GitHub Repository: https://github.com/RyanBrin/java/tree/main/intellij/test-circle/
  */
 
 public class TestCircle {
