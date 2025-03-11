@@ -1,7 +1,7 @@
 /**
  * Circle class
  */
-public class Circle {
+public class Circle implements Comparable<Circle>{
     private double radius;
     private static final double PI = 3.14159;
 
@@ -50,5 +50,24 @@ public class Circle {
      */
     public double circumference() {
         return 2 * PI * radius;
+    }
+    
+    /**
+     * Returns a string representation of the circle.
+     * @return A string in the format "Circle with radius: [radius]".
+     */
+    @Override
+    public String toString() {
+        return "Radius: " + radius;
+    }
+
+    /**
+     * Compares two circles based on their areas.
+     * @param o The other circle to compare with.
+     * @return A negative integer, zero, or a positive integer as this circle is less than, equal to, or greater than the specified circle.
+     */
+    @Override
+    public int compareTo(Circle o) {
+        return 0;
     }
 }

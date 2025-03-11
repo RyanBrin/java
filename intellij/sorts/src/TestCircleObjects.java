@@ -1,27 +1,37 @@
-import java.util.Scanner;
-import java.lang.Math;
-
-/*
+/**
  * Test Circle Objects class
  */
-public class TestCircleObjects {
-    public static void displayARray(Circle[] array) {
+public static void displayArray(Circle[] array) {
+    for (Circle circle : array) {
+        System.out.println(circle + " ");
+    }
+    System.out.println();
+}
 
+public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    int numObjects;
+    Circle[] test;
+
+    System.out.print("Enter the number of Circle objects to create: ");
+    numObjects = scanner.nextInt();
+
+    test = new Circle[numObjects];
+
+    for (int i = 0; i < numObjects; i++) {
+        test[i] = new Circle((int) (101 * Math.random()));
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    System.out.println("Unsorted Array:");
+    displayArray(test);
 
-        int numObjects;
-        Circle[] test;
+    System.out.println("Sorted Array:");
 
-        System.out.print("Enter the number of Circle objects to create: ");
-        numObjects = scanner.nextInt();
+    System.out.println("Selection Sorted:");
+    Sorts.selectionSort(test);
 
-        test = new Circle[numObjects];
+    System.out.println("Insertion Sorted:");
+    Sorts.insertionSort(test);
 
-        for (int i = 0; i < numObjects; i++) {
-            test[i] = new Circle((int)(101 * Math.random()));
-        }
-    }
 }
