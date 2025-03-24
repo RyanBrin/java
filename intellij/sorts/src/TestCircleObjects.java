@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Test Circle Objects class
  */
@@ -26,12 +28,14 @@ public static void main(String[] args) {
     System.out.println("Unsorted Array:");
     displayArray(test);
 
-    System.out.println("Sorted Array:");
-
     System.out.println("Selection Sorted:");
     Sorts.selectionSort(test);
 
     System.out.println("Insertion Sorted:");
     Sorts.insertionSort(test);
 
+    System.out.println("Merge Sorted:");
+    Sorts.runMergeSort(test);
+
+    scanner.close();
 }
