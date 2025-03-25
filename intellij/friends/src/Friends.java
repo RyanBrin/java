@@ -12,6 +12,13 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class Friends {
+    /**
+     * Main method that serves as the entry point for the Friends Management System.
+     * It displays a menu to the user and processes their input to perform various operations
+     * such as adding, displaying, finding, and removing friends.
+     *
+     * @param args Command line arguments (not used in this application).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -46,6 +53,12 @@ public class Friends {
         }
     }
 
+    /**
+     * Adds a new friend to the system by collecting the user's input for first name,
+     * last name, email, and phone number. The friend's details are saved to a file
+     * named in the format "firstName-lastName.txt" in the "src/friends/" directory.
+     * Validates the email format and ensures the phone number contains only digits.
+     */
     private static void addFriend() {
         Scanner scanner = new Scanner(System.in);
 
@@ -89,6 +102,11 @@ public class Friends {
         }
     }
 
+    /**
+     * Displays a list of friends sorted by their first names. It reads the friend files
+     * from the "src/friends/" directory, sorts them based on the first name, and prints
+     * the first name of each friend to the console.
+     */
     private static void displayFriendsByFirstName() {
         File friendsDirectory = new File("src/friends/");
         File[] friendFiles = friendsDirectory.listFiles();
@@ -125,6 +143,11 @@ public class Friends {
         }
     }
 
+    /**
+     * Displays a list of friends sorted by their last names. It reads the friend files
+     * from the "src/friends/" directory, sorts them based on the last name, and prints
+     * the last name of each friend to the console.
+     */
     private static void displayFriendsByLastName() {
         File friendsDirectory = new File("src/friends/");
         File[] friendFiles = friendsDirectory.listFiles();
@@ -164,6 +187,12 @@ public class Friends {
         }
     }
 
+    /**
+     * Finds and displays the details of a friend based on the user's input for first name
+     * and last name. If a file with the corresponding name exists in the "src/friends/"
+     * directory, it prints the friend's details; otherwise, it informs the user that the
+     * friend was not found.
+     */
     private static void findFriend() {
         Scanner scanner = new Scanner(System.in);
 
@@ -192,6 +221,12 @@ public class Friends {
         }
     }
 
+    /**
+     * Removes a friend from the system by deleting the file corresponding to the user's
+     * input for first name and last name. If the file exists in the "src/friends/"
+     * directory, it is deleted, and a success message is displayed; otherwise, it informs
+     * the user that the friend was not found.
+     */
     private static void removeFriend() {
         Scanner scanner = new Scanner(System.in);
 
