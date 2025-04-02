@@ -48,10 +48,9 @@ public class LatinPlantNames {
         };
         JComboBox<String> plantComboBox = new JComboBox<>(plantNames);
 
-        // Simplified ActionListener using a lambda expression
         plantComboBox.addActionListener(e -> {
             int selectedIndex = plantComboBox.getSelectedIndex();
-            selectedPlant.setText("You selected: " + plantNames[selectedIndex] + " (" + latinNames[selectedIndex] + ")");
+            selectedPlant.setText(plantNames[selectedIndex]);
         });
         return plantComboBox;
     }
