@@ -29,8 +29,9 @@ public class Friends {
             System.out.println("1. Add a friend");
             System.out.println("2. Display friends by first name");
             System.out.println("3. Display friends by last name");
-            System.out.println("4. Find a friend");
-            System.out.println("5. Remove a friend");
+            System.out.println("4. Display friends by phone number");
+            System.out.println("5. Find a friend");
+            System.out.println("6. Remove a friend");
             System.out.println("7. Exit");
             System.out.print("\nPlease choose an option: ");
 
@@ -41,8 +42,9 @@ public class Friends {
                 case 1 -> addFriend();
                 case 2 -> displayFriendsByFirstName();
                 case 3 -> displayFriendsByLastName();
-                case 4 -> findFriend();
-                case 5 -> removeFriend();
+                case 4 -> displayFriendsByPhoneNumber();
+                case 5 -> findFriend();
+                case 6 -> removeFriend();
                 case 7 -> {
                     scanner.close();
                     System.out.println("\nThank you for using Friends Management System. Goodbye!");
@@ -67,7 +69,6 @@ public class Friends {
 
         System.out.print("Enter last name: ");
         String lastName = scanner.nextLine();
-
 
         System.out.print("Enter email address: ");
         String email = scanner.nextLine();
@@ -183,6 +184,50 @@ public class Friends {
                 } catch (IOException e) {
                     System.err.println("\nError reading file: " + e.getMessage());
                 }
+            }
+        }
+    }
+
+    /**
+     * Displays a list of friends sorted by their phone numbers. It reads the friend files
+     * from the "src/friends/" directory, extracts the phone number (fourth line) from each,
+     * sorts the files based on this phone number, and prints each friend's phone number
+     * to the console.
+     *
+     * If no friends exist or if any file fails to load properly, appropriate messages or
+     * error details are printed.
+     */
+    private static void displayFriendsByPhoneNumber() {
+        File friendsDirectory = new File("src/friends/");
+        File[] friendFiles = friendsDirectory.listFiles();
+
+        if (friendFiles == null || friendFiles.length == 0) {
+            System.out.println("\nNo friends found in the directory.");
+            return;
+        }
+
+        System.out.println("\n-----------------------------------");
+        System.out.println("  Friends Sorted by Phone Number   ");
+        System.out.println("-----------------------------------");
+
+        Arrays.sort(friendFiles, (f1, f2) -> {
+            try (Scanner s1 = new Scanner(f1); Scanner s2 = new Scanner(f2)) {
+                for (int i = 0; i < 3; i++) s1.nextLine(); // skip to line 4
+                for (int i = 0; i < 3; i++) s2.nextLine(); // skip to line 4
+                String phone1 = s1.nextLine();
+                String phone2 = s2.nextLine();
+                return phone1.compareTo(phone2);
+            } catch (IOException e) {
+                return 0;
+            }
+        });
+
+        for (File file : friendFiles) {
+            try (Scanner s = new Scanner(file)) {
+                for (int i = 0; i < 3; i++) s.nextLine(); // Skip to phone number
+                System.out.println(s.nextLine());
+            } catch (IOException e) {
+                System.err.println("\nError reading file: " + e.getMessage());
             }
         }
     }
