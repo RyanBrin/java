@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class App extends Application {
+public class ToDoListApp extends Application {
 
     public static void main(String[] args) {
         launch(args);
